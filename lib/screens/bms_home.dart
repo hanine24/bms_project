@@ -87,23 +87,21 @@ class _BmsHomeState extends State<BmsHome> with WidgetsBindingObserver {
   }
 
   Future<List<Position>> _getGpsData() async {
-    _gpsData =
-        await FireBaseService(
-          appProvider: _appProvider,
-        ).getGpsDataFromFireBase();
+    _gpsData = await FireBaseService(
+      appProvider: _appProvider,
+    ).getGpsDataFromFireBase();
     setState(() {
       _mapCenter = LatLng(_gpsData[0].lat!, _gpsData[0].lng!);
     });
-        print("gpsData:${_gpsData}");
+    print("gpsData:${_gpsData}");
 
     return _gpsData;
   }
 
   Future<List<Bms>> _getBmsData() async {
-    _bmsData =
-        await FireBaseService(
-          appProvider: _appProvider,
-        ).getBmsDataFromFireBase();
+    _bmsData = await FireBaseService(
+      appProvider: _appProvider,
+    ).getBmsDataFromFireBase();
     print("bmsData:${_bmsData}");
     return _bmsData;
   }
@@ -118,7 +116,19 @@ class _BmsHomeState extends State<BmsHome> with WidgetsBindingObserver {
         return Column(
           children: [
             Expanded(
-              child: Container(child: Column(children: [Text("${_bmsData.length}")])),
+              child: Container(
+                  child: Column(children: [
+                Text("soc:${_bmsData[0].soc}"),
+                Text(
+                  "temp:${_bmsData[0].temp}",
+                ),  
+                 Text("courant:${_bmsData[0].courant}"),
+                Text(
+                  "tension:${_bmsData[0].tension}",
+                ),  
+                Text("soc:${_gpsData[0].lat}"),
+                Text("temp:${_gpsData[0].lng}"),
+              ])),
             ),
           ],
         );
@@ -152,7 +162,6 @@ class _BmsHomeState extends State<BmsHome> with WidgetsBindingObserver {
         ),
         title: const Text("BMS APP"),
       ),
-
       body: googleMapUI(),
     );
   }
