@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './Routes/routes.dart';
+import './routes/routes.dart';
 import 'providers/app_provider.dart';
 
 void main()async {
