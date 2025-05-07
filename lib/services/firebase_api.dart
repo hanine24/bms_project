@@ -15,7 +15,6 @@ class FireBaseService {
 
   Future<List<Position>> getGpsDataFromFireBase({counter = 0}) async {
     http.Response? response;
-        print("gps data ");
 
     try {
       response = await fireBaseClient.get(
@@ -29,8 +28,7 @@ class FireBaseService {
       var data = json.decode(response.body);
 
      
-                print("gps data Lat:${data['lat']}");
-                print("gps data Lng:${data['lng']}");
+                
 
         var e = Position(lat: data['lat'], lng: data['lng']);
        position.add(e);
@@ -64,7 +62,7 @@ class FireBaseService {
 
       var data = json.decode(response.body);
 
-    
+      
 
         var e = Bms(
           temp: data['temp'],
@@ -72,11 +70,11 @@ class FireBaseService {
           courant: data['courant'],
           soc: data['soc'],
         );
+        print("bms data e:${e}");
 
         bms.add(e);
       
-      print("enter to get bms data");
-
+print("bms data Temp:${data['temp']}");
       appProvider.setBmsData(bms);
       return bms;
 

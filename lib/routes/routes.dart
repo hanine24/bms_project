@@ -17,7 +17,11 @@ class routeGenerator {
          case '/showSelectedFile':
          
         return _errorRoute();
-        
+        case '/settigns':
+        return MaterialPageRoute(builder: (_) => BmsHome());
+         case '/showSelectedFile':
+         
+        return _errorRoute();
     
       default:
         // If there is no such named route in the switch statement, e.g. /third

@@ -107,34 +107,83 @@ class _BmsHomeState extends State<BmsHome> with WidgetsBindingObserver {
   }
 
   late bool isMapCreated = false;
+Widget googleMapUI() {
+  _appProvider = Provider.of<AppProvider>(context);
+  final bms = _bmsData.isNotEmpty ? _bmsData[0] : Bms(soc: 0, temp: 0, courant: 0, tension: 0);
+  final gps = _gpsData.isNotEmpty ? _gpsData[0] : Position(lat: 0.0, lng: 0.0);
 
-  Widget googleMapUI() {
-    _appProvider = Provider.of<AppProvider>(context);
-
-    return Consumer<AppProvider>(
-      builder: (consumerContext, model, child) {
-        return Column(
-          children: [
-            Expanded(
-              child: Container(
-                  child: Column(children: [
-                Text("soc:${_bmsData[0].soc}"),
-                Text(
-                  "temp:${_bmsData[0].temp}",
-                ),  
-                 Text("courant:${_bmsData[0].courant}"),
-                Text(
-                  "tension:${_bmsData[0].tension}",
-                ),  
-                Text("soc:${_gpsData[0].lat}"),
-                Text("temp:${_gpsData[0].lng}"),
-              ])),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  return SingleChildScrollView(
+    padding: const EdgeInsets.all(16.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Text(
+          "BMS Realtime Data",
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 12),
+        Card(
+          elevation: 4,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Column(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.battery_charging_full, color: Colors.blue),
+                title: const Text("State of Charge (SOC)"),
+                trailing: Text("${bms.soc}%"),
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.thermostat, color: Colors.red),
+                title: const Text("Temperature"),
+                trailing: Text("${bms.temp} °C"),
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.flash_on, color: Colors.orange),
+                title: const Text("Current"),
+                trailing: Text("${bms.courant} A"),
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.power, color: Colors.green),
+                title: const Text("Voltage"),
+                trailing: Text("${bms.tension} V"),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Text(
+          "GPS Location",
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 12),
+        Card(
+          elevation: 4,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Column(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.location_on, color: Colors.purple),
+                title: const Text("Latitude"),
+                trailing: Text("${gps.lat}"),
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.location_searching, color: Colors.purpleAccent),
+                title: const Text("Longitude"),
+                trailing: Text("${gps.lng}"),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
 
   @override
   Widget build(BuildContext context) {

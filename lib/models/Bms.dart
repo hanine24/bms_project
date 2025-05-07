@@ -1,9 +1,9 @@
 class Bms {
  
-  String? temp;
-  String? tension;
-  String? courant;
-  String? soc;
+  double? temp;
+  double? tension;
+  double? courant;
+  double? soc;
 
   
   Bms(
