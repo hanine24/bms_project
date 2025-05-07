@@ -1,6 +1,6 @@
 {
-    "name": "bmstest_bmsdaly",
-    "short_name": "bmstest_bmsdaly",
+    "name": "bms_project",
+    "short_name": "bms_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

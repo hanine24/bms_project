@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "bmstest_bmsdaly" "\0"
+            VALUE "FileDescription", "bms_project" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "bmstest_bmsdaly" "\0"
+            VALUE "InternalName", "bms_project" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "bmstest_bmsdaly.exe" "\0"
-            VALUE "ProductName", "bmstest_bmsdaly" "\0"
+            VALUE "OriginalFilename", "bms_project.exe" "\0"
+            VALUE "ProductName", "bms_project" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

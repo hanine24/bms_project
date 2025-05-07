@@ -1,4 +1,4 @@
-# bmstest_bmsdaly
+# bms_project
 
 A new Flutter project.
 

@@ -1,4 +1,4 @@
-package com.example.bmstest_bmsdaly
+package com.example.bms_project
 
 import io.flutter.embedding.android.FlutterActivity
 
