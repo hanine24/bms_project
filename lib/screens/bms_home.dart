@@ -196,7 +196,7 @@ Widget googleMapUI() {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF1270E3), Color(0xFF59C2FF)],
+              colors: [Color.fromARGB(255, 247, 132, 1), Color.fromARGB(255, 219, 5, 5)],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               stops: [0.0, 1.0],
